@@ -9,10 +9,9 @@ import {
   HStack,
   Tr ,Tbody,Td, Button
 } from '@chakra-ui/react'
-import TableList from './Details'
-import axios from 'axios'
+
 import { Link, useNavigate } from 'react-router-dom'
-import Details from './Details'
+
 
 function DashBoard() {
   const[list,setlist]=useState([])
@@ -55,10 +54,7 @@ function deletedata(index){
         <Td>{e.name}</Td>
         <Td>{e.email}</Td>
         <Td >{e.number}</Td>
-        {/* <Td><Button onClick={(e,i)=>{<Details   name={e.name} email={e.email} number={e.number}/>
-                navigate("/Details")
-      }}>DETAILS</Button></Td> */}
-          <Link to={`/details/${i}`}><Td><Button bg="blue">Details</Button></Td></Link> 
+        <Td><Link to={`/details/${i}`}><Button bg="blue">Details</Button></Link></Td> 
         <Td><Button bg="blue"  onClick={()=>{deletedata(i)}}>DELETE</Button></Td>
       </Tr>
       
