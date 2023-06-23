@@ -12,6 +12,8 @@ function Home() {
     email:"",
     number:0
   })
+  let empty=[]
+  localStorage.setItem("data",JSON.stringify(empty))
   let username=JSON.parse(localStorage.getItem("data")) ||[]
   const [massage,setmassage]=useState(false)
   const navigate= useNavigate()

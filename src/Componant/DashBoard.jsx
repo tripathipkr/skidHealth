@@ -4,21 +4,24 @@ import {
   Thead,
   Tfoot,
   Th,
+  Text,
   TableCaption,
   TableContainer,
   HStack,
   Tr ,Tbody,Td, Button
 } from '@chakra-ui/react'
+import { Link} from 'react-router-dom'
 
-import { Link, useNavigate } from 'react-router-dom'
-
-
-function DashBoard() {
+const DashBoard=()=> {
   const[list,setlist]=useState([])
-  let navigate=useNavigate()
+  let l=list.length
+  let data=JSON.parse(localStorage.getItem("data"));
+  console.log(list.length)
   useEffect(()=>{
-     let data=JSON.parse(localStorage.getItem("data"));
+     
+     if(data.length>0){
           setlist(data)
+     }
     },[])
   
 function deletedata(index){
@@ -47,16 +50,16 @@ function deletedata(index){
         </Tr>
       </Thead>
       <Tbody>
-       {list.map((e,i)=>{
+       {data.length>0&&data.map((e,i)=>{
         return <>
           <Tr>
-            <Td>{i+1}</Td>
-        <Td>{e.name}</Td>
-        <Td>{e.email}</Td>
-        <Td >{e.number}</Td>
-        <Td><Link to={`/details/${i}`}><Button bg="blue">Details</Button></Link></Td> 
-        <Td><Button bg="blue"  onClick={()=>{deletedata(i)}}>DELETE</Button></Td>
-      </Tr>
+              <Td>{i+1}</Td>
+              <Td>{e.name}</Td>
+              <Td>{e.email}</Td>
+              <Td >{e.number}</Td>
+              <Td><Link to={`/details/${i}`}><Button bg="blue">Details</Button></Link></Td> 
+               <Td><Button bg="blue"  onClick={()=>{deletedata(i)}}>DELETE</Button></Td>
+          </Tr>
       
         </>
        })}
