@@ -42,7 +42,7 @@ function deletedata(index){
           <Th>SERIAL NO</Th>
           <Th>NAME</Th>
           <Th>EMAIL</Th>
-          <Th isNumeric>NUMBER</Th>
+          <Th >NUMBER</Th>
           <Th>VIEW DETAILS</Th>
           <Th>DElETE</Th>
         </Tr>
